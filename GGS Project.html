@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="School_logo.svg" type="image/x-icon">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap');
+    .form-group {
+      margin-bottom: 10px;
+    }
+    .logo{
+        width: 120px;
+        padding-top: 20px;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+    }
+    .container3{
+        text-align: center;
+    }
+    .container2{
+        width: 350px;
+        height: 480px;
+        background-color: #F5FAFF;
+        border-radius: 20px;
+        margin-top: 90px;
+    }
+    .title{
+        font-size: 1.3rem;
+        margin-bottom:7px;
+        margin-top: 10px;
+        font-family: 'Josefin Sans', sans-serif;
+        font-family: 'Open Sans', sans-serif;
+    }
+    .Email{
+        padding: 17px;
+        width: 300px;
+        border-radius: 10px;
+        border: transparent;
+        font-family: 'Open Sans', sans-serif;
+        border: 0.8px solid rgb(188, 186, 186);
+        box-sizing: border-box;
+        margin-top: 14px;
+    }
+    .pw{
+        padding: 17px;
+        width: 300px;
+        border-radius: 10px;
+        border: transparent;
+        font-family: 'Open Sans', sans-serif;
+        border: 0.8px solid rgb(188, 186, 186);
+        box-sizing: border-box;
+        background-image: url('./image-removebg-preview.png');
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .btn{
+        text-align: center;
+        align-items: center;
+        padding-right: 130px;
+        padding-left: 130px;
+        background-color: #3182CE;
+        border-radius: 5px;
+        color: white;
+        padding-top:10px;
+        padding-bottom: 10px;
+        border: transparent;
+        margin-top:25px;
+        margin-left: 2px;
+        cursor: pointer;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1rem;
+    }
+    .footer{
+        font-size: 0.8rem;
+        margin-top: 40px;
+        opacity: 78%;
+        text-align: center;
+        margin-right: 6px;
+    }
+    .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url('/Users/ratana/Documents/Web Dev/Project/Asynchronous Javascript/open.png');
+        opacity: 60%;
+      }
+      .form-group1{
+        position: relative;
+        display: inline-block;
+      }
+      
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container2">
+            <div class="container3">
+                <img class="logo" src="School_logo.svg">
+                <p class="title"><strong>Auth-Management</strong></p>
+                <form>
+                    <div class="form-group">
+                      <input type="email" id="email" name="email" class="Email" placeholder="Example@gmail.com" maxlength="30">
+                    </div>
+                    <div class="form-group1">
+                        <input type="password" id="password" class="pw" maxlength="25" placeholder="Enter a Password">
+                        <span class="toggle-password" onclick="togglePasswordVisibility()"></span>
+                      </div>
+                  </form>
+                  <button class="btn"><strong>LOGIN</strong></button>
+                  <p class="footer">Copyright © 2023 GGS IT Student. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+    <script>  
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var toggleIcon = document.querySelector(".toggle-password");
+      
+            if (passwordInput.type === "password") {
+              passwordInput.type = "text";
+              toggleIcon.style.backgroundImage = "url('/Users/ratana/Documents/Web Dev/Project/Asynchronous Javascript/close.png')"; // Replace with the eye-closed icon image path
+            } else {
+              passwordInput.type = "password";
+              toggleIcon.style.backgroundImage = "url('/Users/ratana/Documents/Web Dev/Project/Asynchronous Javascript/open.png')"; // Replace with the eye-open icon image path
+            }
+          }
+          const inputElement = document.getElementById('email');
+          const textLimitElement = document.getElementById('password');
+          const maxLength = inputElement.getAttribute('maxlength');
+           inputElement.addEventListener('input', function() {
+            const remainingLength = maxLength - this.value.length;
+            textLimitElement.textContent = remainingLength >= 0 ? `Characters remaining: ${remainingLength}` : 'Limit exceeded';
+    });
+    </script>
+      
+</body>
+</html>
